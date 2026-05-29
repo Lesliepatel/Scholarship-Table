@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gwinnett County Scholarship Calendar | Paul Duke STEM High School</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1a2744; --gold:#c9a227; --gold-lt:#fef5d8; --bg:#f8f7f4;
+  --white:#fff; --border:#e2dfd8; --text:#1a2744; --muted:#6b6b72; --hover:#faf8f2;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;}
+
+header{background:var(--navy);padding:2rem 2.5rem 1.5rem;border-bottom:4px solid var(--gold);}
+.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.lbl{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+header h1{font-family:'DM Serif Display',serif;font-size:1.75rem;color:#fff;font-weight:400;line-height:1.2;}
+.meta{font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;}
+.hbadge{background:var(--gold);color:var(--navy);font-size:11px;font-weight:600;padding:5px 12px;border-radius:4px;white-space:nowrap;align-self:flex-start;margin-top:4px;}
+
+.ctrl-bar{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 2.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.ctrl-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.ctrl-inner label{font-size:12px;font-weight:500;color:var(--muted);}
+select,input[type=text]{font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);outline:none;}
+select:focus,input[type=text]:focus{border-color:var(--navy);}
+input[type=text]{width:200px;}
+#count{margin-left:auto;font-size:12px;color:var(--muted);font-weight:500;}
+
+.legend{max-width:1100px;margin:.9rem auto 0;padding:0 2.5rem;display:flex;flex-wrap:wrap;gap:10px;}
+.leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+
+main{max-width:1100px;margin:1.5rem auto 3rem;padding:0 2.5rem;}
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.scroll{overflow-x:auto;}
+table{width:100%;min-width:700px;border-collapse:collapse;font-size:13px;}
+thead th{background:var(--navy);color:rgba(255,255,255,.75);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;text-align:left;white-space:nowrap;}
+.cn{width:22%;min-width:160px;}
+.cd{width:10%;min-width:90px;}
+.ca{width:11%;min-width:90px;}
+.cc{width:12%;min-width:105px;}
+.cq{min-width:220px;}
+tbody tr{border-bottom:1px solid var(--border);}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover td{background:var(--hover);}
+td{padding:10px 14px;vertical-align:top;line-height:1.5;}
+td.cd{white-space:nowrap;color:var(--muted);font-size:12px;}
+td.ca{white-space:nowrap;font-weight:600;color:var(--navy);font-size:12px;}
+td.cq{font-size:12px;color:var(--muted);}
+.mrow td{background:#f0ede6;color:var(--navy);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-bottom:1px solid var(--border);}
+a.nlink{color:var(--navy);text-decoration:none;font-weight:500;}
+a.nlink:hover{color:var(--gold);text-decoration:underline;}
+
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap;letter-spacing:.02em;}
+.b-local    {background:#e0f4ec;color:#0a5c3f;}
+.b-state    {background:#ddeeff;color:#0a3d7a;}
+.b-national {background:#eeecfd;color:#3a2f8f;}
+.b-firstgen {background:#fef0d0;color:#7a4a00;}
+.b-race     {background:#fde9e2;color:#8c2c10;}
+.b-religion {background:#e8f4dc;color:#2e5e10;}
+.b-company  {background:#ddeeff;color:#0a3d7a;}
+.b-stem     {background:#fce8f0;color:#7a2040;}
+.b-adversity{background:#eeece8;color:#3d3a34;}
+.nores{text-align:center;padding:3rem;color:var(--muted);}
+
+footer{max-width:1100px;margin:0 auto 2.5rem;padding:0 2.5rem;font-size:11px;color:var(--muted);line-height:1.8;}
+footer a{color:var(--navy);}
+footer strong{color:var(--text);}
+
+@media(max-width:640px){
+  header,.ctrl-bar{padding-left:1rem;padding-right:1rem;}
+  .legend,main,footer{padding-left:1rem;padding-right:1rem;}
+  header h1{font-size:1.3rem;}
+  input[type=text]{width:130px;}
+  #count{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div>
+      <div class="lbl">Paul Duke STEM High School &mdash; Gwinnett County, GA</div>
+      <h1>Scholarship Calendar</h1>
+      <div class="meta">Updated May 2026 &nbsp;&middot;&nbsp; 65+ scholarships &nbsp;&middot;&nbsp; Filter by category or deadline month</div>
+    </div>
+    <div class="hbadge">2025&ndash;2026 Cycle</div>
+  </div>
+</header>
+
+<div class="ctrl-bar">
+  <div class="ctrl-inner">
+    <label>Category:</label>
+    <select id="typeFilter">
+      <option value="">All categories</option>
+      <option value="Local">Local (GCPS)</option>
+      <option value="State">State (Georgia)</option>
+      <option value="National">National</option>
+      <option value="First-Gen">First-Gen</option>
+      <option value="Race/Ethnicity">Race / Ethnicity</option>
+      <option value="Religion">Religion</option>
+      <option value="Company">Corporate</option>
+      <option value="STEM">STEM</option>
+      <option value="Adversity">Adversity / Disability</option>
+    </select>
+    <label>Month:</label>
+    <select id="monthFilter"><option value="">All months</option></select>
+    <input type="text" id="search" placeholder="Search scholarships&hellip;">
+    <span id="count"></span>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="leg"><span class="dot" style="background:#0a5c3f"></span>Local (GCPS)</div>
+  <div class="leg"><span class="dot" style="background:#3a2f8f"></span>National</div>
+  <div class="leg"><span class="dot" style="background:#0a3d7a"></span>State / Corporate</div>
+  <div class="leg"><span class="dot" style="background:#7a4a00"></span>First-Gen</div>
+  <div class="leg"><span class="dot" style="background:#8c2c10"></span>Race / Ethnicity</div>
+  <div class="leg"><span class="dot" style="background:#2e5e10"></span>Religion</div>
+  <div class="leg"><span class="dot" style="background:#7a2040"></span>STEM</div>
+  <div class="leg"><span class="dot" style="background:#3d3a34"></span>Adversity / Disability</div>
+</div>
+
+<main>
+  <div class="card">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="cn">Scholarship</th>
+            <th class="cd">Deadline</th>
+            <th class="ca">Amount</th>
+            <th class="cc">Category</th>
+            <th class="cq">Requirements &amp; Notes</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <strong>Disclaimer:</strong> Deadlines and award amounts reflect the most recent available cycle and may change annually. Always verify current requirements directly with the scholarship organization before applying.<br>
+  <strong>Compiled by:</strong> Paul Duke STEM High School College &amp; Career Counseling &nbsp;&middot;&nbsp;
+  Resources: <a href="https://gcps-foundation.org/scholarships-2/">GCPS Foundation</a> &nbsp;&middot;&nbsp; <a href="https://www.fastweb.com">Fastweb</a> &nbsp;&middot;&nbsp; <a href="https://bold.org/scholarships/">Bold.org</a> &nbsp;&middot;&nbsp; <a href="https://scholarships360.org">Scholarships360</a>
+</footer>
+
+<script>
+const data=[
+  {month:"August",name:"Coca-Cola Scholars Program",deadline:"Aug 1 – Sep 30",amount:"$20,000",type:"National",url:"https://www.coca-colascholarsfoundation.org/apply/",req:"HS senior, 3.0+ GPA, U.S. citizen/resident. 150 scholars selected/yr. Leadership & community impact. No essays until semifinalist round."},
+  {month:"August",name:"Gates Scholarship",deadline:"Mid-September",amount:"Full cost of attendance",type:"First-Gen",url:"https://www.thegatesscholarship.org/",req:"Minority HS senior, Pell-eligible, 3.3+ GPA, U.S. citizen. Covers full unmet financial need. Strong first-gen & low-income focus. Highly competitive."},
+  {month:"September",name:"QuestBridge National College Match",deadline:"Sep pre-app / Oct full",amount:"Full 4-year scholarship",type:"First-Gen",url:"https://www.questbridge.org/",req:"High-achieving, low-income HS senior. First-gen friendly. Matches to full scholarships at 50+ top colleges. Complete College Prep Scholarship first."},
+  {month:"October",name:"VFW Voice of Democracy",deadline:"October 31",amount:"Up to $30,000",type:"National",url:"https://www.vfw.org/community/youth-and-education/youth-scholarships",req:"Grades 9–12, enrolled in U.S. accredited school. 3–5 min recorded essay on annual patriotic theme. Apply through local VFW post."},
+  {month:"October",name:"Burger King Scholars Program",deadline:"Oct – Dec (check site)",amount:"$1,000 – $60,000",type:"Company",url:"https://www.bk-scholars.com/",req:"HS senior or BK employee/family member. Academic achievement, financial need, leadership, community involvement. 200+ scholarships awarded annually."},
+  {month:"October",name:"Posse Foundation (counselor nomination)",deadline:"Junior year spring/summer",amount:"Full tuition",type:"First-Gen",url:"https://www.possefoundation.org/",req:"MUST be nominated by school or community org — students cannot self-apply. Atlanta is a Posse city. Leadership-based, diversity-focused. Groups of 10 scholars attend partner colleges together."},
+  {month:"November",name:"Elks Most Valuable Student",deadline:"Late Oct / November",amount:"$1,000 – $12,500/yr",type:"National",url:"https://www.elks.org/scholars/scholarships/MVS.cfm",req:"U.S. citizen, HS senior. Apply through local Elks lodge. Merit-based considering scholarship, leadership, and financial need."},
+  {month:"November",name:"NSHSS First Generation Scholarship",deadline:"Rolling",amount:"$2,000",type:"First-Gen",url:"https://www.nshss.org/scholarships/s/first-generation-scholarship-2026/",req:"First-generation NSHSS member (first in family to attend college). HS seniors through college juniors. 500–800 word essay on challenges as a first-gen student."},
+  {month:"November",name:"Hispanic Heritage Youth Awards (CHCI)",deadline:"~November",amount:"Varies",type:"Race/Ethnicity",url:"https://chci.org/",req:"Latino/Hispanic HS seniors excelling academically and in community. Award categories: business, education, healthcare/science, technology. Apply via Congressional Hispanic Caucus Institute."},
+  {month:"December",name:"Hagan Scholarship",deadline:"December 1",amount:"Up to $7,500/semester",type:"First-Gen",url:"https://haganscholarships.org/",req:"3.5+ GPA, financial need, self-motivated. Primarily first-gen and rural students. Renewable for 8 semesters. Helps students graduate debt-free."},
+  {month:"December",name:"Horatio Alger Scholarship",deadline:"Dec 1 – Feb 15",amount:"$10,000 – $25,000",type:"Adversity",url:"https://horatioalger.org/scholarships/",req:"HS senior, 2.0+ GPA, income ≤$55,000, U.S. citizen. Must demonstrate overcoming significant adversity (poverty, foster care, homelessness, illness, etc.). 600+ awards/yr. One application covers all Horatio Alger awards."},
+  {month:"January",name:"Ron Brown Scholar Program",deadline:"January 9",amount:"$40,000 ($10k/yr)",type:"Race/Ethnicity",url:"https://www.ronbrown.org/",req:"African American HS senior. Academic excellence, leadership, community service, financial need. One of the most prestigious national awards for Black students."},
+  {month:"January",name:"Dell Scholars Program",deadline:"Feb 15 (opens Dec)",amount:"$20,000 + laptop",type:"First-Gen",url:"https://www.dellscholars.org/",req:"Must be in approved college readiness program (AVID, GEAR UP, Upward Bound, etc.). 2.4+ GPA, Pell-eligible, financial need. Includes laptop + Chegg credits. 500 scholars/yr."},
+  {month:"January",name:"Beauty P. Baldwin Scholarship (AKA)",deadline:"February 15 (opens Jan)",amount:"Varies",type:"Race/Ethnicity",url:"https://form.jotform.com/212477702409153",req:"GCPS senior, African American (male or female), accepted to 4-yr college, 3.0+ GPA. Gwinnett chapter of Alpha Kappa Alpha Sorority."},
+  {month:"January",name:"Beyond the Spectrum Scholarship",deadline:"January 16",amount:"$500 x 2 awards",type:"Adversity",url:"https://www.sigmaomicronzeta.org/scholarship",req:"GCPS senior diagnosed with autism spectrum disorder. Plans for postsecondary education. Sponsored by Zeta Phi Beta, Sigma Omicron Zeta Chapter, Snellville, GA."},
+  {month:"January",name:"Hillel / Jewish Youth Org Scholarships",deadline:"Varies by org",amount:"$1,000 each",type:"Religion",url:"https://www.hillel.org/jewish-scholarships-portal/",req:"Jewish HS seniors active in NFTY, BBYO, or USY. James Alexander NFTY ($1k), Hanno Mott USY ($1k), SAM Alumni BBYO ($1k). Check Hillel portal for current cycle."},
+  {month:"January",name:"American Water STEM Scholarship",deadline:"January 10",amount:"$10,000",type:"STEM",url:"https://learnmore.scholarsapply.org/american-water/",req:"3.0+ GPA, pursuing STEM or business degree. Female (any race) or underrepresented minority. Reside in a qualifying state — check site for eligibility."},
+  {month:"February",name:"DAR Scholarships",deadline:"Jan 31 – Feb (varies)",amount:"Varies",type:"National",url:"https://www.dar.org/national-society/scholarships",req:"Opens November 1. Awards for STEM, history, education, nursing, law, medicine. Must apply through local DAR chapter."},
+  {month:"February",name:"Society of Women Engineers (SWE)",deadline:"~March 31",amount:"Varies (multiple awards)",type:"STEM",url:"https://swe.org/scholarships/",req:"Female HS seniors or undergrads in engineering or computer science. One application opens consideration for many SWE-backed awards. Typically 3.0+ GPA."},
+  {month:"March",name:"Area 2 Gwinnett PTA Scholarship",deadline:"Early March",amount:"$750",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"Paul Duke STEM, Peachtree Ridge, Lanier, North Gwinnett, Collins Hill, Duluth, GSMST, Mountain View, Norcross seniors. Student AND 1 household adult must be active PTSA members."},
+  {month:"March",name:"Brenden & Alex Elbaz Scholarship",deadline:"March 15",amount:"Varies",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS senior accepted to any accredited post-secondary institution. Essay on overcoming personal adversity and challenges."},
+  {month:"March",name:"Alton C. Crews Educator Scholarship",deadline:"March (GCPS)",amount:"$1,000",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS senior, 3.0+ GPA, interest in teaching profession. Two-page essay + faculty recommendation letter."},
+  {month:"March",name:"Capt. Hugh N. Mulzac Scholarship",deadline:"March 5",amount:"$1,000",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS student, minority, 3.0+ GPA, plans to attend U.S. Merchant Marine Academy or maritime college. Essay + recommendation letter."},
+  {month:"March",name:"Community-Based Mentoring Scholarship",deadline:"March 27",amount:"$1,000",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"Must have participated in GCPS Community-Based Mentoring (CBM) Program. Plans to attend 2-yr, 4-yr, or technical college."},
+  {month:"March",name:"Phi Beta Sigma – Rho Beta Sigma Scholarship",deadline:"March 30",amount:"$1,914 x 3 awards",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"Male GCPS graduating seniors. 3.0+ GPA. Plans for college or technical school. 500-word essay on education and the impact of mentorship."},
+  {month:"March",name:"GCPS Foundation STEM Scholarship",deadline:"April 24",amount:"$1,500",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS senior, 2.7+ GPA, plans to major in STEM. Faculty recommendation + one-page essay on STEM career interest."},
+  {month:"March",name:"Gwinnett Multicultural Advisory Committee",deadline:"April 24",amount:"$1,000",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS senior, Hispanic, African American, Asian/Pacific Islander, or other minority. Plans to enroll fall 2026. Leadership in community service emphasized."},
+  {month:"March",name:"ACS Scholars Program",deadline:"March 1",amount:"Up to $5,000",type:"Race/Ethnicity",url:"https://www.acs.org/funding/scholarships-fellowships/acs-scholars.html",req:"African American, Hispanic/Latino, or Native American students in chemistry, biochemistry, chemical engineering, or related STEM fields."},
+  {month:"March",name:"Hispanic Scholarship Fund (HSF)",deadline:"Feb – Mar (check site)",amount:"$500 – $5,000",type:"Race/Ethnicity",url:"https://www.hsf.net/scholarship/",req:"Hispanic heritage (any race). HS senior or undergrad. FAFSA required. Full-time enrollment at accredited 4-yr college. Largest national Hispanic scholarship org — $30M+ awarded annually."},
+  {month:"March",name:"Coca-Cola First Gen HBCU Scholarship",deadline:"March (check TMCF)",amount:"Varies",type:"First-Gen",url:"https://tmcf.org/",req:"HS senior planning to attend a TMCF member HBCU. First-generation college student with demonstrated financial need. Apply through Thurgood Marshall College Fund portal."},
+  {month:"March",name:"Thurgood Marshall College Fund (TMCF)",deadline:"Mar – Apr (varies)",amount:"Up to $20,000",type:"Race/Ethnicity",url:"https://tmcf.org/scholarships/",req:"30+ scholarships for students at HBCUs or Predominantly Black Institutions. Need- and merit-based. 3.0+ GPA typical. Check tmcf.org for all open awards."},
+  {month:"March",name:"OCA–UPS Gold Mountain Scholarship",deadline:"~March (check site)",amount:"$2,000",type:"Race/Ethnicity",url:"https://www.ocanational.org/gold-mountain-scholarship",req:"AAPI-identifying first-generation HS senior. U.S. citizen, permanent resident, or DACA with SSN/ITIN. Financial need demonstrated. Leadership-focused."},
+  {month:"March",name:"Lime Connect Pathways Scholarship",deadline:"April 14",amount:"$1,000",type:"Adversity",url:"https://www.limeconnect.com/",req:"U.S. or Canadian HS senior with any long-term or recurring disability. Plans to pursue undergraduate degree. No minimum GPA listed."},
+  {month:"March",name:"Knights of Columbus Scholarships",deadline:"March (varies by council)",amount:"Up to $1,500/yr",type:"Religion",url:"https://www.kofc.org/en/what-we-do/scholarships/index.html",req:"Catholic students who are members or children/grandchildren of Knights of Columbus members. Merit + character + service. Apply through local KoC council. Renewable."},
+  {month:"March",name:"Amazon Future Engineer Scholarship",deadline:"Feb – Mar (check site)",amount:"$40,000 + internship",type:"Company",url:"https://www.amazonfutureengineer.com/scholarships",req:"HS senior pursuing computer science or related field. 400 awarded/yr. Includes paid Amazon internship after freshman year. Financial need + academic merit."},
+  {month:"March",name:"Generation Google Scholarship",deadline:"~March (check site)",amount:"$10,000",type:"Company",url:"https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship",req:"HS senior or college student in CS or engineering. Preference for women and underrepresented minorities in tech. Leadership + passion for technology."},
+  {month:"April",name:"Clara Barton Aspiring Nurse Scholarship",deadline:"Mar 1 – Apr 1",amount:"$500 – $1,000",type:"Local",url:"https://4h9jp.share.hsforms.com/2i7QC3oR6RjuVQWBZ3X873g",req:"Dacula or Mountain View HS seniors ONLY. Accepted into 2-yr or 4-yr nursing program. Sponsored by Help for Healthcare Professionals (HHCP), Dacula."},
+  {month:"April",name:"Teaching as a Profession Scholarship",deadline:"April (GCPS)",amount:"$500 – $1,000",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS seniors in Early Childhood Ed or Teaching as a Profession CTE pathway. Plans to major in education. GCPS Foundation & Georgia United Credit Union."},
+  {month:"April",name:"Wayne W. Henley STEM Scholarship",deadline:"April 24",amount:"$1,000",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"GCPS graduating senior, 2.7+ GPA, plans for STEM undergraduate study. Faculty recommendation + one-page STEM essay."},
+  {month:"April",name:"Courtney S. Blair Student Leadership",deadline:"April (GCPS)",amount:"$1,000",type:"Local",url:"http://bit.ly/CourtneyGCPS",req:"Top 5% of class, Gwinnett Student Leadership Team member. Essay + class rank verification required."},
+  {month:"April",name:"InspirASIAN Scholarship (AT&T ERG)",deadline:"April (varies)",amount:"$1,000 – $2,000",type:"Race/Ethnicity",url:"https://inspirasian.us/scholarships",req:"Georgia HS students. AAPI focus. Over $300k awarded since inception. Based on ranked review of all applications."},
+  {month:"April",name:"Univision 34 'Orgullo de Nuestra Juventud'",deadline:"Mar 15 – Apr 15",amount:"Varies",type:"Race/Ethnicity",url:"https://collinshillhs.gcpsk12.org/counseling/scholarships-financial-aid",req:"12th grader or recent Spring grad, legal GA resident. 3.0+ GPA (academic) or 3.8+ GPA (excellence award). Valid documentation required."},
+  {month:"April",name:"Gwinnett Pearls of Service Scholarship",deadline:"Feb 1 – Mar 15",amount:"$500 – $8,000",type:"Local",url:"http://gwinnettpearlsofservice.com/other-scholarships",req:"Gwinnett County student. See gwinnettpearlsofservice.com for full current requirements."},
+  {month:"April",name:"Jack Kent Cooke Foundation",deadline:"April (college scholarship)",amount:"Up to $55,000/yr",type:"First-Gen",url:"https://www.jkcf.org/",req:"High-achieving, significant financial need. First-gen and low-income students strongly encouraged. Young Scholars Program also available for younger students."},
+  {month:"April",name:"Jackie Robinson Foundation",deadline:"February (check site)",amount:"Up to $8,750/yr",type:"Race/Ethnicity",url:"https://www.jackierobinson.org/apply/",req:"Minority graduating senior, academic excellence, financial need, leadership. Named in honor of Jackie Robinson's legacy of breaking barriers. Highly competitive."},
+  {month:"April",name:"BHW Women in STEM Scholarship",deadline:"April 15",amount:"$3,000",type:"STEM",url:"https://thebhwgroup.com/scholarship",req:"Female HS senior or undergrad in any STEM field. Essay contest format — no minimum GPA required. Supports women from underrepresented groups in STEM."},
+  {month:"April",name:"Microsoft Scholarship Program",deadline:"~Feb – Apr (check site)",amount:"Varies (tuition coverage)",type:"Company",url:"https://careers.microsoft.com/students/us/en/usscholarshipprogram",req:"HS senior or undergrad in U.S., Canada, or Mexico pursuing bachelor's degree in CS or related field. Diversity in STEM focus. Includes Microsoft employee mentorship."},
+  {month:"April",name:"Taco Bell Live Mas Scholarship",deadline:"~February (check site)",amount:"$5,000 – $25,000",type:"Company",url:"https://www.tacobell.com/livemasscholarship",req:"HS senior age 16+. Passion-based award — creativity over GPA. Submit a video or visual application. No minimum GPA requirement. Celebrates bold, ambitious students."},
+  {month:"April",name:"Wells Fargo Scholarship – Disabilities",deadline:"~April (check site)",amount:"$2,500 (full-time)",type:"Adversity",url:"https://www.scholarshipamerica.org/",req:"HS senior or college student with any identified disability (long-term condition affecting major life activities). Joint program from Wells Fargo + Scholarship America."},
+  {month:"April",name:"United Methodist Scholarships (GBHEM)",deadline:"~March – April",amount:"Varies",type:"Religion",url:"https://www.gbhem.org/loans-scholarships/scholarships/",req:"Active United Methodist student, HS senior through graduate level. Merit + community service. Apply through the General Board of Higher Education and Ministry."},
+  {month:"April",name:"Islamic Scholarship Fund",deadline:"~March – April (check site)",amount:"Varies",type:"Religion",url:"https://islamicscholarshipfund.org/",req:"Muslim American student, HS senior through graduate. Various majors. Financial need and community involvement considered. One of the larger national Muslim scholarship programs."},
+  {month:"April",name:"LULAC National Scholarship Fund",deadline:"~March – April",amount:"$250 – $2,000",type:"Race/Ethnicity",url:"https://lulac.org/programs/education/scholarships/",req:"Hispanic/Latino student, U.S. citizen or permanent resident. Enrolled at or planning to enroll at accredited 2- or 4-yr institution. Apply through local LULAC council."},
+  {month:"May",name:"Georgia United Credit Union Scholarship",deadline:"Spring (check annually)",amount:"Varies (~$75k total)",type:"State",url:"https://gucufoundation.org/programs/scholarship-high-school-seniors/",req:"Applicant or parent/guardian must have active Georgia United savings account for 6+ months at time of application. Open to GCPS seniors."},
+  {month:"May",name:"Horatio Alger – 2-yr / CTE Deadline",deadline:"Mar 15 – Jun 15",amount:"$10,000 – $25,000",type:"Adversity",url:"https://horatioalger.org/scholarships/",req:"HS seniors planning to attend 2-yr college or CTE/technical program. Separate application window. Same overcoming-adversity focus. 2.0+ GPA, income ≤$55,000."},
+  {month:"Ongoing",name:"HOPE Scholarship",deadline:"Automatic after enrollment",amount:"Partial tuition (GA public)",type:"State",url:"https://www.gafutures.org/hope-state-aid-programs/hope-zell-miller-scholarships/hope-scholarship/",req:"Georgia resident, 3.0 HOPE GPA from HS. Complete FAFSA or GSFAPPS. Evaluated at graduation. Applies toward tuition at eligible GA public colleges."},
+  {month:"Ongoing",name:"Zell Miller Scholarship",deadline:"Automatic after enrollment",amount:"100% in-state tuition",type:"State",url:"https://www.gafutures.org/hope-state-aid-programs/hope-zell-miller-scholarships/zell-miller-scholarship/",req:"GA resident, 3.7 HOPE GPA, SAT 1200+ or ACT 26+ (single sitting), 4 rigor credits. Complete FAFSA or GSFAPPS. Valedictorian/Salutatorian auto-qualify."},
+  {month:"Ongoing",name:"HSF Scholar Portal (Hispanic)",deadline:"Rolling / annual",amount:"$500 – $5,000",type:"Race/Ethnicity",url:"https://www.hsf.net/scholarship/",req:"Use HSF portal to browse all partner corporate scholarships (Google, Netflix, etc.) for Hispanic students. Many awards flow through HSF."},
+  {month:"Ongoing",name:"Bold.org Scholarship Search",deadline:"Rolling (77% rolling)",amount:"Varies",type:"National",url:"https://bold.org/scholarships/",req:"Free. Filters for first-gen, Hispanic, AAPI, Black, disability, religion, STEM, and more. 180+ first-gen awards alone. Updated regularly."},
+  {month:"Ongoing",name:"Fastweb",deadline:"Varies",amount:"Varies",type:"National",url:"https://www.fastweb.com/",req:"Free. 1.5M+ scholarships. Profile-based matching covers race, religion, disability, corporate, STEM, first-gen, and local awards. Recommended for all students."},
+  {month:"Ongoing",name:"Scholly App",deadline:"Varies",amount:"Varies",type:"National",url:"https://myscholly.com/",req:"Paid ($2.99/mo). Personalized matching for first-gen, race, religion, STEM. Good starting tool for students unfamiliar with the scholarship landscape."},
+  {month:"Ongoing",name:"Scholarships360",deadline:"Varies",amount:"Varies",type:"National",url:"https://scholarships360.org/",req:"Free. Filters for STEM, Hispanic, Asian, Black students, first-gen, disabilities, corporate, and religion. No-essay scholarship options available."},
+  {month:"Ongoing",name:"GCPS Foundation Scholarship Catalog",deadline:"Jan – Apr annually",amount:"Varies (30+ scholarships)",type:"Local",url:"https://gcps-foundation.org/scholarships-2/",req:"Annual catalog of GCPS-specific scholarships districtwide and by school. New cycle opens Oct/Nov each year. Bookmark and share with all seniors every fall."}
+];
+
+const mo=["August","September","October","November","December","January","February","March","April","May","Ongoing"];
+const tc={"Local":"b-local","State":"b-state","National":"b-national","First-Gen":"b-firstgen","Race/Ethnicity":"b-race","Religion":"b-religion","Company":"b-company","STEM":"b-stem","Adversity":"b-adversity"};
+
+function badge(t){return '<span class="badge '+(tc[t]||'b-national')+'">'+t+'</span>';}
+
+function render(){
+  const tv=document.getElementById("typeFilter").value;
+  const mv=document.getElementById("monthFilter").value;
+  const sv=document.getElementById("search").value.toLowerCase();
+  const f=data.filter(d=>{
+    if(tv&&d.type!==tv)return false;
+    if(mv&&d.month!==mv)return false;
+    if(sv&&!(d.name.toLowerCase().includes(sv)||d.req.toLowerCase().includes(sv)||d.type.toLowerCase().includes(sv)||d.amount.toLowerCase().includes(sv)))return false;
+    return true;
+  });
+  const tbody=document.getElementById("tbody");
+  document.getElementById("count").textContent=f.length+" scholarship"+(f.length!==1?"s":"")+" shown";
+  if(!f.length){tbody.innerHTML='<tr><td colspan="5" class="nores">No scholarships match your filters.</td></tr>';return;}
+  const sorted=[...f].sort((a,b)=>mo.indexOf(a.month)-mo.indexOf(b.month));
+  let html="",last=null;
+  sorted.forEach(d=>{
+    if(d.month!==last){html+='<tr class="mrow"><td colspan="5">'+d.month+'</td></tr>';last=d.month;}
+    const nm=d.url?'<a class="nlink" href="'+d.url+'" target="_blank" rel="noopener">'+d.name+'</a>':'<strong>'+d.name+'</strong>';
+    html+='<tr><td class="cn">'+nm+'</td><td class="cd">'+d.deadline+'</td><td class="ca">'+d.amount+'</td><td class="cc">'+badge(d.type)+'</td><td class="cq">'+d.req+'</td></tr>';
+  });
+  tbody.innerHTML=html;
+}
+
+const months=[...new Set(data.map(d=>d.month))].sort((a,b)=>mo.indexOf(a)-mo.indexOf(b));
+const mf=document.getElementById("monthFilter");
+months.forEach(m=>{const o=document.createElement("option");o.value=m;o.textContent=m;mf.appendChild(o);});
+document.getElementById("typeFilter").addEventListener("change",render);
+document.getElementById("monthFilter").addEventListener("change",render);
+document.getElementById("search").addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
